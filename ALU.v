@@ -1,6 +1,6 @@
 module ALU(
     input [7:0] A, B,
-    input [1:0] OP_CODE,    //00:덧셈, 01:뺄셈, 10:곱셈
+    input [1:0] OP_CODE,    //00:??, 01:??, 10:??
     output [15:0] RESULT,
     output NEG
 );
@@ -27,7 +27,7 @@ always @(OP_CODE or add_result or sub_result or sub_neg or mul_result) begin
             neg_reg = 0;
         end
         2'b01: begin
-            result_reg = { {8{sub_result[7]}}, sub_result };
+            result_reg = { {8'b0}, sub_result };
             neg_reg = sub_neg;
         end
         2'b10: begin
