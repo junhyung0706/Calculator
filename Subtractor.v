@@ -5,9 +5,14 @@ module Subtractor(
 );
 
 always @(A or B) begin
-    RESULT = A - B;
-    NEG = RESULT[7];
+	if (A > B) begin
+		RESULT = A - B;
+		NEG = 0;
+	end
+	else begin
+		RESULT = B - A;
+		NEG = 1;
+	end
 end
-
 
 endmodule
