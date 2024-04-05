@@ -6,12 +6,12 @@ module Subtractor(
 
 always @(A or B) begin
 	if (A > B) begin		// 연산 결과가 양수일 경우
-		RESULT = A - B;
-		NEG = 0;
+		RESULT <= A - B;
+		NEG <= 0;
 	end
 	else begin		// 연산 결과가 음수인 경우
-		RESULT = B - A;	// 절대 값을 RESULT에 대입
-		NEG = 1;
+		RESULT <= B - A;	// 절대 값을 RESULT에 대입
+		NEG <= 1;
 	end
 end
 
