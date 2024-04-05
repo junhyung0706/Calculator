@@ -3,7 +3,7 @@ module Calculator(
     input reset,
     input [17:0] DIN,	                    // 18비트 데이터 입력
     output reg [15:0] RESULT,	            // 연산 결과를 저장하는 16비트 출력
-    output reg NEG		                    // 연산 결과가 음수일 경우 1을 출력하는 플래그
+    output reg NEG		            // 연산 결과가 음수일 경우 1을 출력하는 플래그
 );
     reg [17:0] instruction_memory [0:15];     // 16개의 18비트 명령어를 저장할 수 있는 메모리
     reg [3:0] mem_index = 0;                  // 메모리 쓰기를 위한 인덱스
@@ -14,8 +14,8 @@ module Calculator(
     wire [1:0] op_code = instruction_memory[execution_index][17:16];	// 연산 코드 추출
     wire [7:0] operand_a = instruction_memory[execution_index][15:8];	// 첫 번째 피연산자 추출
     wire [7:0] operand_b = instruction_memory[execution_index][7:0];	// 두 번째 피연산자 추출
-    wire [15:0] alu_result;	                                            // ALU로부터의 연산 결과
-    wire alu_neg;		                                                // ALU 연산 결과가 음수인 경우를 나타내는 신호
+    wire [15:0] alu_result;	                                        // ALU로부터의 연산 결과
+    wire alu_neg;		                                        // ALU 연산 결과가 음수인 경우를 나타내는 신호
 
 // ALU 모듈 인스턴스화, 연산 코드와 피연산자를 기반으로 연산 수행
     ALU ALU_0(
